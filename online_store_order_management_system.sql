@@ -19,7 +19,6 @@ create table Customers (
 						Address text
 );
 
-drop table Customers
 
 -- Products 
 
@@ -35,9 +34,6 @@ create table Products (
 						Price decimal(10,2) not null check (Price >= 0),
 						Stock int not null check (Stock >= 0) 
 );
-
-
-drop table Products
 
 
 -- Orders
@@ -59,8 +55,6 @@ create table Orders (
 					  
 );
 
-drop table Orders
-
 
 -- Sample data inserts
 
@@ -74,11 +68,7 @@ insert into Customers (name, email, phone, address) values
 						('Eva Brown', 'eva.brown@example.com', '9234567890', 'Miami'),
 						('Arun Prince', 'arun.prince@example.com', '9234167890', 'Chennai'),
 						('Priya Ghosh', 'priya.ghosh@example.com', '98555-01054', 'Hyderabad'),
-						('Karan Kumar', 'karan.kumar@example.com', '95555-01064', 'Bangalore');
-
-
-
-insert into Customers (name, email, phone, address) values 
+						('Karan Kumar', 'karan.kumar@example.com', '95555-01064', 'Bangalore'),
 						('Manish Yadev', 'manish.yadev@example.com', '9976573211', 'Delhi');
 
 
@@ -257,7 +247,7 @@ order by c.name
 
 -- d) Calculate the average order value across all orders. 
 
-with order_avg as (
+with order_value as (
 	select o.order_id, sum(o.quantity * p.price) as Total_value
 	from Orders o
 	join Products p on p.product_id = o.product_id
@@ -265,7 +255,7 @@ with order_avg as (
 )
 
 select round(avg(Total_value), 2) as Avg_Order_Value
-from order_avg
+from order_value
 
 
 
