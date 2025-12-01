@@ -22,3 +22,7 @@ Analytics:
 a) Find the month with the highest total sales. 
 b) Identify products with no orders in the last 6 months. 
 c) Retrieve customers who have never placed an order. 
+
+##############################################################################################
+Added sql file for creation, query for the table.
+Added screenshots of outputs
